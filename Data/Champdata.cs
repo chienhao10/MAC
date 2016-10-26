@@ -516,10 +516,13 @@ namespace AutoJungle
                 return false;
             }
             ItemHandler.UseItemsJungle();
-            if (targetMob.IsValidTarget(800) && Hero.Spellbook.IsCharging || targetMob.MaxHealth > 700)
+            if (Q.IsCharging)
             {
-                Q.Cast(targetMob);
-            }
+            	if(targetMob.IsValidTarget(800) || targetMob.MaxHealth > 700)
+            	{
+                	Q.Cast(targetMob);
+            	}
+        	}
             else
             {
                 Q.StartCharging();
