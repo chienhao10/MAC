@@ -297,7 +297,7 @@ namespace AutoJungle
                     E = new Spell(SpellSlot.E, 600);
                     R = new Spell(SpellSlot.R, 800);
 
-                    Autolvl = new AutoLeveler(new int[] { 2, 0, 0, 1, 0, 3, 0, 1, 0, 1, 3, 1, 1, 2, 2, 3, 2, 2 });
+                    Autolvl = new AutoLeveler(new int[] { 1, 2, 0, 0, 0, 3, 0, 2, 0, 2, 3, 2, 2, 1, 1, 3, 1, 1 });
 
                     JungleClear = ViJungleClear;
                     Combo = ViCombo;
@@ -312,7 +312,7 @@ namespace AutoJungle
                     E = new Spell(SpellSlot.E, 450);
                     R = new Spell(SpellSlot.R, 825);
 
-                    Autolvl = new AutoLeveler(new int[] { 2, 0, 0, 1, 0, 3, 0, 1, 0, 1, 3, 1, 1, 2, 2, 3, 2, 2 });
+                    Autolvl = new AutoLeveler(new int[] { 1, 0, 0, 2, 0, 3, 0, 1, 0, 1, 3, 1, 1, 2, 2, 3, 2, 2 });
 
                     JungleClear = MoonJungleClear;
                     Combo = MoonCombo;
