@@ -201,6 +201,37 @@ namespace AutoJungle
                         return;
                     }
                     break;
+
+                case "Vi":
+                    var Qing = Champdata.Q.IsCharging;
+                    var enemyaround2 = HeroManager.Enemies.Any(enemy => enemy.IsValidTarget(800));
+                    if (_GameInfo.GameState == State.FightIng)
+                    {
+                        var targetHero = _GameInfo.Target;
+                        if (Champdata.Q.IsReady() && enemyaround2)
+                        {
+                            Champdata.Q.Cast(targetHero);
+                        }
+                        else if (!Qing && enemyaround2)
+                        {
+                            Champdata.Q.StartCharging();
+                        }
+                        return;
+                    }
+                    if (_GameInfo.GameState == State.Jungling || _GameInfo.GameState == State.LaneClear)
+                    {
+                        var targetMob = _GameInfo.Target;
+                        if (Champdata.Q.IsReady() || targetMob.IsValidTarget(800) && targetMob.MaxHealth > 700)
+                        {
+                            Champdata.Q.Cast(targetMob);
+                        }
+                        else if (!Qing && targetMob.IsValidTarget(800))
+                        {
+                            Champdata.Q.StartCharging();
+                        }
+                        return;
+                    }
+                    break;
                 /*
                                 case "Nunu":
                                     var rActive = player.HasBuff("AbsoluteZero");

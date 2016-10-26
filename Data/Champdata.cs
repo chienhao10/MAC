@@ -516,17 +516,6 @@ namespace AutoJungle
                 return false;
             }
             ItemHandler.UseItemsJungle();
-            if (Q.IsCharging)
-            {
-            	if(targetMob.IsValidTarget(800) || targetMob.MaxHealth > 700)
-            	{
-                	Q.Cast(targetMob);
-            	}
-        	}
-            else
-            {
-                Q.StartCharging();
-            }
             if (E.IsReady() && targetMob.IsValidTarget(150) || targetMob.MaxHealth > 700)
             {
                 E.Cast();
