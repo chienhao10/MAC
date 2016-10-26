@@ -59,7 +59,56 @@ namespace AutoJungle.Data
                 case BuildType.Dr:
                     SetlistDr();
                     break;
+                case BuildType.Vi:
+                    SetlistVi();
+                    break;
+                case BuildType.Moon:
+                    SetListMoon();
+                    break;
             }
+        }
+        private void SetlistVi()
+        {
+            ItemList.Add(new BuyingOrder(1, 1041, "打野刀", 350));
+            ItemList.Add(new BuyingOrder(2, 2031, "药水", 150));
+            ItemList.Add(new BuyingOrder(3, 3340, "饰品", 0));
+            ItemList.Add(new BuyingOrder(4, 1039, "打野刀2", 350));
+            ItemList.Add(new BuyingOrder(5, 3715, "合成打野", 700));
+            ItemList.Add(new BuyingOrder(6, 1042, "攻速1", 350));
+            ItemList.Add(new BuyingOrder(7, 1419, "攻速打野", 1350));
+            ItemList.Add(new BuyingOrder(8, 1001, "Boots of Speed", 600));
+            ItemList.Add(new BuyingOrder(9, 3086, "叉子", 1300));
+            ItemList.Add(new BuyingOrder(10, 3085, "hurrican", 2250));
+            ItemList.Add(new BuyingOrder(11, 3044, "Phage", 950));
+            ItemList.Add(new BuyingOrder(12, 3078, "tri", 1490));
+            ItemList.Add(new BuyingOrder(13, 1031, "Chain Vest", 800));
+            ItemList.Add(new BuyingOrder(14, 3742, "Dead Man's Plate", 1800));         
+            ItemList.Add(new BuyingOrder(15, (int) ItemId.Bilgewater_Cutlass, "Bilgewater Cutlass", 1650));
+            ItemList.Add(new BuyingOrder(16, (int) ItemId.Blade_of_the_Ruined_King, "BOTRK", 1750));
+            ItemList.Add(new BuyingOrder(17, (int) ItemId.Giants_Belt, "Giants Belt", 1000));
+            ItemList.Add(new BuyingOrder(18, 3143, "Randuin's Omen", 1900));
+            ItemList.Add(new BuyingOrder(29, 2138, "Elixir of Iron", 500));            
+        }
+        private void SetListMoon()
+        {
+            ItemList.Add(new BuyingOrder(1, 1041, "Hunter's Machete", 350));
+            ItemList.Add(new BuyingOrder(2, 2031, "Refillable Potion", 150));
+            ItemList.Add(new BuyingOrder(3, 3340, "Trinket", 0));
+            ItemList.Add(new BuyingOrder(4, 1039, "Hunter's Talisman", 350));
+            ItemList.Add(new BuyingOrder(5, 3706, "Stalker's Blade", 700));
+            ItemList.Add(new BuyingOrder(6, 3113, "Aether Wisp", 850));
+            ItemList.Add(new BuyingOrder(7, 1402, "Runic Echoes", 1350));
+            ItemList.Add(new BuyingOrder(8, 1001, "Boots of Speed", 400));
+            ItemList.Add(new BuyingOrder(9, 3020, "Boots of magic", 800));
+            ItemList.Add(new BuyingOrder(10, 3101, "Stinger", 1300));
+            ItemList.Add(new BuyingOrder(11, 3115, "NsT", 1900));
+            ItemList.Add(new BuyingOrder(12, 3018, "codex", 900));
+            ItemList.Add(new BuyingOrder(13, 3001, "abs", 1850));
+            ItemList.Add(new BuyingOrder(14, 3057, "sheen", 1900));
+            ItemList.Add(new BuyingOrder(15, 1026, "wand", 850));
+            ItemList.Add(new BuyingOrder(16, 3100, "lich", 1300));
+            ItemList.Add(new BuyingOrder(17, 3165, "morelelonomicon", 2900));
+            ItemList.Add(new BuyingOrder(18, 2139, "Elixir of Sorcery", 500));
         }
         private void SetlistDr()
         {
@@ -481,6 +530,8 @@ namespace AutoJungle.Data
         UD,
         Kayle,
         KOG,
-        Dr
+        Dr,
+        Vi,
+        Moon
     }
 }
