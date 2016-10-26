@@ -362,10 +362,6 @@ namespace AutoJungle
             {
                 E.Cast();
             }
-            if (R.IsReady() && Hero.HealthPercent < 30)
-            {
-                R.Cast();
-            }
             OrbwalkingForBots.Orbwalk(targetHero);
             return false;
         }
