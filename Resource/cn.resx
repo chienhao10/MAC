@@ -249,4 +249,13 @@
   <data name="supportedKayle" xml:space="preserve">
   <value>天使凯尔</value>
   </data>
+  <data name="supportedDrMundo" xml:space="preserve">
+  <value>蒙多医生</value>
+  </data>
+  <data name="supportedDianna" xml:space="preserve">
+  <value>皎月女神</value>
+  </data>
+  <data name="supportedLeesin" xml:space="preserve">
+  <value>盲僧</value>
+  </data>
 </root>

@@ -185,11 +185,11 @@ namespace AutoJungle
                     if (_GameInfo.GameState == State.Jungling || _GameInfo.GameState == State.LaneClear)
                     {
                         var targetMob = _GameInfo.Target;
-                        if (Champdata.W.IsReady() && !WActive && targetMob.IsValidTarget(425))
+                        if (Champdata.W.IsReady() && !WActive && targetMob.IsValidTarget(600))
                         {
                             Champdata.W.Cast();
                         }
-                        else if (WActive && !targetMob.IsValidTarget(425))
+                        else if (WActive && !targetMob.IsValidTarget(600))
                         {
                             Champdata.W.Cast();
                         }
@@ -1688,6 +1688,9 @@ namespace AutoJungle
             menuChamps.AddItem(new MenuItem("supportedUdyr", resourceM.GetString("supportedUdyr")));
             menuChamps.AddItem(new MenuItem("supportedKogMaw", resourceM.GetString("supportedKogMaw")));
             menuChamps.AddItem(new MenuItem("supportedKayle", resourceM.GetString("supportedKayle")));
+            menuChamps.AddItem(new MenuItem("supportedDrMundo", resourceM.GetString("supportedDrMundo")));
+            menuChamps.AddItem(new MenuItem("supportedDianna", resourceM.GetString("supportedDianna")));
+            menuChamps.AddItem(new MenuItem("supportedLeesin", resourceM.GetString("supportedLeesin")));
 
             //menuChamps.AddItem(new MenuItem("supportedSkarner", "Skarner"));
             menu.AddSubMenu(menuChamps);

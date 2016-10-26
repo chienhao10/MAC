@@ -249,4 +249,13 @@
   <data name="supportedKayle" xml:space="preserve">
   <value>Kayle</value>
   </data>
+  <data name="supportedDrMundo" xml:space="preserve">
+  <value>DrMundo</value>
+  </data>
+  <data name="supportedDianna" xml:space="preserve">
+  <value>Dianna</value>
+  </data>
+  <data name="supportedLeesin" xml:space="preserve">
+  <value>LeeSin</value>
+  </data>
 </root>
