@@ -255,7 +255,10 @@
   <data name="supportedDrMundo" xml:space="preserve">
   <value>蒙多醫生</value>
   </data>
-  <data name="supportedDianna" xml:space="preserve">
+  <data name="supportedVi" xml:space="preserve">
+  <value>薇</value>
+  </data>
+  <data name="supportedDiana" xml:space="preserve">
   <value>黛安娜</value>
   </data>
   <data name="supportedLeesin" xml:space="preserve">

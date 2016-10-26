@@ -303,7 +303,7 @@ namespace AutoJungle
                     Combo = ViCombo;
                     Console.WriteLine("Vi loaded");
                     break;
-                case "Dianna":
+                case "Diana":
                     Hero = ObjectManager.Player;
                     Type = BuildType.Dr;
 
@@ -316,7 +316,7 @@ namespace AutoJungle
 
                     JungleClear = MoonJungleClear;
                     Combo = MoonCombo;
-                    Console.WriteLine("Dianna loaded");
+                    Console.WriteLine("Diana loaded");
                     break;
 
                 default:
@@ -403,9 +403,13 @@ namespace AutoJungle
             {
                 R.Cast(targetHero);
             }
-            if (W.IsReady() && Hero.IsDashing() && targetHero.IsValidTarget(W.Range))
+            if (W.IsReady() && Hero.IsDashing() && targetHero.IsValidTarget(250) && targetHero.MaxHealth > 100)
             {
                 W.Cast();
+            }
+            if (E.IsReady() && targetHero.IsValidTarget(450) && !targetHero.IsZombie)
+            {
+                E.Cast();
             }
             else
             {
@@ -417,7 +421,7 @@ namespace AutoJungle
                 {
                     R.Cast(targetHero);
                 }
-                if(W.IsReady() && Hero.IsDashing() && targetHero.IsValidTarget(W.Range))
+                if(W.IsReady() && Hero.IsDashing() && targetHero.IsValidTarget(250) && targetHero.MaxHealth > 100)
                 {
                     W.Cast();
                 }
@@ -447,7 +451,7 @@ namespace AutoJungle
             {
                 Q.Cast(targetMob);
             }
-            if(W.IsReady() && targetMob.IsValidTarget(W.Range))
+            if(W.IsReady() && targetMob.IsValidTarget(W.Range) && targetMob.MaxHealth > 700)
             {
                 W.Cast();
             }

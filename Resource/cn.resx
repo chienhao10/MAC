@@ -252,7 +252,10 @@
   <data name="supportedDrMundo" xml:space="preserve">
   <value>蒙多医生</value>
   </data>
-  <data name="supportedDianna" xml:space="preserve">
+  <data name="supportedVi" xml:space="preserve">
+  <value>菲艾</value>
+  </data>
+  <data name="supportedDiana" xml:space="preserve">
   <value>皎月女神</value>
   </data>
   <data name="supportedLeesin" xml:space="preserve">

@@ -252,7 +252,10 @@
   <data name="supportedDrMundo" xml:space="preserve">
   <value>DrMundo</value>
   </data>
-  <data name="supportedDianna" xml:space="preserve">
+  <data name="supportedVi" xml:space="preserve">
+  <value>Vi</value>
+  </data>
+  <data name="supportedDiana" xml:space="preserve">
   <value>Dianna</value>
   </data>
   <data name="supportedLeesin" xml:space="preserve">
