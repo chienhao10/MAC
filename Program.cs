@@ -176,7 +176,7 @@ namespace AutoJungle
                         {
                             Champdata.W.Cast();
                         }
-                        if (Champdata.R.IsReady() && enemyaround && !player.InFountain() && player.HealthPercent < 80)
+                        if (Champdata.R.IsReady() && enemyaround && !player.InFountain() && player.HealthPercent < 45)
                         {
                             Champdata.R.Cast();
                         }
@@ -194,7 +194,7 @@ namespace AutoJungle
                             Champdata.W.Cast();
                         }
 
-                        if (Champdata.R.IsReady() && targetMob.IsValidTarget(425) && !player.InFountain() && player.HealthPercent < 80)
+                        if (Champdata.R.IsReady() && targetMob.IsValidTarget(425) && !player.InFountain() && player.HealthPercent < 45)
                         {
                             Champdata.R.Cast();
                         }
