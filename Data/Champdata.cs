@@ -288,6 +288,37 @@ namespace AutoJungle
                     Combo = DrCombo;
                     Console.WriteLine("Dr.Mundo loaded");
                     break;
+                case "Vi":
+                    Hero = ObjectManager.Player;
+                    Type = BuildType.Dr;
+
+                    Q = new Spell(SpellSlot.Q, 800);
+                    W = new Spell(SpellSlot.W);
+                    E = new Spell(SpellSlot.E, 600);
+                    R = new Spell(SpellSlot.R, 800);
+
+                    Autolvl = new AutoLeveler(new int[] { 2, 0, 0, 1, 0, 3, 0, 1, 0, 1, 3, 1, 1, 2, 2, 3, 2, 2 });
+
+                    JungleClear = ViJungleClear;
+                    Combo = ViCombo;
+                    Console.WriteLine("Vi loaded");
+                    break;
+                case "Dianna":
+                    Hero = ObjectManager.Player;
+                    Type = BuildType.Dr;
+
+                    Q = new Spell(SpellSlot.Q, 830);
+                    W = new Spell(SpellSlot.W, 250);
+                    E = new Spell(SpellSlot.E, 450);
+                    R = new Spell(SpellSlot.R, 825);
+
+                    Autolvl = new AutoLeveler(new int[] { 2, 0, 0, 1, 0, 3, 0, 1, 0, 1, 3, 1, 1, 2, 2, 3, 2, 2 });
+
+                    JungleClear = MoonJungleClear;
+                    Combo = MoonCombo;
+                    Console.WriteLine("Dianna loaded");
+                    break;
+
                 default:
                     Console.WriteLine(ObjectManager.Player.ChampionName + " not supported");
                     break;
@@ -336,6 +367,173 @@ namespace AutoJungle
             {
                 GameInfo.CastSpell(Program._GameInfo.Barrier);
             }
+        }
+
+        private bool MoonCombo()
+        {
+            var targetHero = Program._GameInfo.Target;
+            if (Hero.Spellbook.IsChanneling)
+            {
+                return false;
+            }
+            if (Program.menu.Item("ComboSmite").GetValue<Boolean>())
+            {
+                Jungle.CastSmiteHero((Obj_AI_Hero)targetHero);
+            }
+            if (Hero.IsWindingUp)
+            {
+                return false;
+            }
+            ItemHandler.UseItemsCombo(targetHero, true);
+            var prediction = Q.GetPrediction(targetHero);
+            if (Q.IsReady() && targetHero.IsValidTarget(820) && R.IsReady() && targetHero.IsValidTarget(820) && !targetHero.IsZombie)
+            {
+                R.Cast(targetHero);
+                Q.Cast(targetHero);
+             }
+            if (prediction.Hitchance >= HitChance.VeryHigh && Q.IsReady() && targetHero.IsValidTarget(830))
+            {
+                Q.Cast(prediction.CastPosition);
+            }
+            if (R.IsReady() && targetHero.IsValidTarget(825) && targetHero.HasBuff("dianamoonlight") && !targetHero.IsZombie)
+            {
+                R.Cast(targetHero);
+            }
+            if (R.IsReady() && targetHero.IsValidTarget(825) && !targetHero.IsZombie)
+            {
+                R.Cast(targetHero);
+            }
+            if (W.IsReady() && Hero.IsDashing() && targetHero.IsValidTarget(W.Range))
+            {
+                W.Cast();
+            }
+            else
+            {
+                if (prediction.Hitchance >= HitChance.High && Q.IsReady() && targetHero.IsValidTarget(830))
+                {
+                    Q.Cast(prediction.CastPosition);
+                }
+                if (R.IsReady() && targetHero.IsValidTarget(825) && targetHero.HasBuff("dianamoonlight") && !targetHero.IsZombie)
+                {
+                    R.Cast(targetHero);
+                }
+                if(W.IsReady() && Hero.IsDashing() && targetHero.IsValidTarget(W.Range))
+                {
+                    W.Cast();
+                }
+                if(E.IsReady() && targetHero.IsValidTarget(450) && !targetHero.IsZombie)
+                {
+                    E.Cast();
+                }
+            }
+            OrbwalkingForBots.Orbwalk(targetHero);
+            return false;
+        }
+        private bool MoonJungleClear()
+        {
+            var targetMob = Program._GameInfo.Target;
+            var structure = Helpers.CheckStructure();
+            if (structure != null)
+            {
+                Hero.IssueOrder(GameObjectOrder.AttackUnit, structure);
+                return false;
+            }
+            if (targetMob == null)
+            {
+                return false;
+            }
+            ItemHandler.UseItemsJungle();
+            if(Q.IsReady() && targetMob.IsValidTarget(830) || targetMob.MaxHealth > 700)
+            {
+                Q.Cast(targetMob);
+            }
+            if(W.IsReady() && targetMob.IsValidTarget(W.Range))
+            {
+                W.Cast();
+            }
+            if(R.IsReady() && targetMob.HasBuff("diannamoonlight") || targetMob.MaxHealth > 700)
+            {
+                R.Cast(targetMob);
+            }
+            if (Hero.IsWindingUp)
+            {
+                return false;
+            }
+            Hero.IssueOrder(GameObjectOrder.AttackUnit, targetMob);
+            return false;
+        }
+        private bool ViCombo()
+        {
+            var targetHero = Program._GameInfo.Target;
+            if (Hero.Spellbook.IsChanneling)
+            {
+                return false;
+            }
+            if (Program.menu.Item("ComboSmite").GetValue<Boolean>())
+            {
+                Jungle.CastSmiteHero((Obj_AI_Hero)targetHero);
+            }
+            if (Hero.IsWindingUp)
+            {
+                return false;
+            }
+            ItemHandler.UseItemsCombo(targetHero, true);
+            var prediction = Q.GetPrediction(targetHero);
+            if (prediction.Hitchance >= HitChance.High && Q.IsReady() && targetHero.IsValidTarget(800))
+            {
+                if (Hero.Spellbook.IsCharging && !targetHero.UnderTurret())
+                {
+                    Q.Cast(targetHero);
+                }
+                else
+                {
+                    Q.StartCharging();
+                }
+            }
+            if (E.IsReady() && targetHero.IsValidTarget(150))
+            {
+                E.Cast();
+            }
+            if (R.IsReady() && targetHero.IsValidTarget(800) && !targetHero.IsZombie && !targetHero.UnderTurret() && !Hero.Spellbook.IsCharging)
+            {
+                R.Cast(targetHero);
+            }
+            OrbwalkingForBots.Orbwalk(targetHero);
+            return false;
+        }
+
+        private bool ViJungleClear()
+        {
+            var targetMob = Program._GameInfo.Target;
+            var structure = Helpers.CheckStructure();
+            if (structure != null)
+            {
+                Hero.IssueOrder(GameObjectOrder.AttackUnit, structure);
+                return false;
+            }
+            if (targetMob == null)
+            {
+                return false;
+            }
+            ItemHandler.UseItemsJungle();
+            if (targetMob.IsValidTarget(800) && Hero.Spellbook.IsCharging || targetMob.MaxHealth > 700)
+            {
+                Q.Cast(targetMob);
+            }
+            else
+            {
+                Q.StartCharging();
+            }
+            if (E.IsReady() && targetMob.IsValidTarget(150) || targetMob.MaxHealth > 700)
+            {
+                E.Cast();
+            }
+            if (Hero.IsWindingUp)
+            {
+                return false;
+            }
+            Hero.IssueOrder(GameObjectOrder.AttackUnit, targetMob);
+            return false;
         }
 
         private bool DrCombo()
