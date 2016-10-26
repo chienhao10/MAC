@@ -165,7 +165,6 @@ namespace AutoJungle
                 case "DrMundo":
                     var WActive = player.HasBuff("BurningAgony");
                     var enemyaround = HeroManager.Enemies.Any(enemy => enemy.IsValidTarget(425));
-
                     if (_GameInfo.GameState == State.FightIng)
                     {
                         var targetHero = _GameInfo.Target;
@@ -176,6 +175,10 @@ namespace AutoJungle
                         else if (WActive && !enemyaround)
                         {
                             Champdata.W.Cast();
+                        }
+                        if (Champdata.R.IsReady() && enemyaround && player.HealthPercent < 30)
+                        {
+                            Champdata.R.Cast();
                         }
                         return;
                     }
@@ -189,6 +192,11 @@ namespace AutoJungle
                         else if (WActive && !targetMob.IsValidTarget(425))
                         {
                             Champdata.W.Cast();
+                        }
+
+                        if (Champdata.R.IsReady() && targetMob.IsValidTarget(425) && player.HealthPercent < 30)
+                        {
+                            Champdata.R.Cast();
                         }
                         return;
                     }
