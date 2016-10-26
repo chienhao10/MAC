@@ -80,9 +80,10 @@ namespace AutoJungle.Data
             ItemList.Add(new BuyingOrder(15, (int)ItemId.Giants_Belt, "Giants Belt", 1435));
             ItemList.Add(new BuyingOrder(16, 3067, "kindlegem", 800));
             ItemList.Add(new BuyingOrder(17, 3083, "warmog", 800));
-            ItemList.Add(new BuyingOrder(18, 1029, "clothamor", 300));
-            ItemList.Add(new BuyingOrder(19, 3075, "thronmail", 2050));
-            ItemList.Add(new BuyingOrder(20, 2138, "Elixir of Iron", 500));
+            ItemList.Add(new BuyingOrder(18, 3052, "Jaurims Fist", 1300));
+            ItemList.Add(new BuyingOrder(19, 3077, "Tiamat", 1300));
+            ItemList.Add(new BuyingOrder(20, 3748, "Titanic Hydra", 1100));
+            ItemList.Add(new BuyingOrder(21, 2138, "Elixir of Iron", 500));
         }
 
         private void SetlistKayle()
