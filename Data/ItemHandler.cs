@@ -65,6 +65,9 @@ namespace AutoJungle.Data
                 case BuildType.Moon:
                     SetListMoon();
                     break;
+                case BuildType.Jax:
+                    SetListMoon();
+                    break;
             }
         }
         private void SetlistVi()
@@ -78,7 +81,7 @@ namespace AutoJungle.Data
             ItemList.Add(new BuyingOrder(7, 1419, "攻速打野", 1350));
             ItemList.Add(new BuyingOrder(8, 1001, "Boots of Speed", 600));
             ItemList.Add(new BuyingOrder(9, 3086, "叉子", 1300));
-            ItemList.Add(new BuyingOrder(10, 3085, "hurrican", 2250));
+            ItemList.Add(new BuyingOrder(10, 3101, "stinger", 2250));
             ItemList.Add(new BuyingOrder(11, 3044, "Phage", 950));
             ItemList.Add(new BuyingOrder(12, 3078, "tri", 1490));
             ItemList.Add(new BuyingOrder(13, 1031, "Chain Vest", 800));
@@ -239,6 +242,7 @@ namespace AutoJungle.Data
             ItemList.Add(new BuyingOrder(16, (int) ItemId.Manamune, "Ravenous Hydra Melee Only", 1650));
             ItemList.Add(new BuyingOrder(17, (int) ItemId.Zeal, "Zeal", 1300));
             ItemList.Add(new BuyingOrder(18, (int) ItemId.Phantom_Dancer, "Phantom Dancer", 1500));
+            ItemList.Add(new BuyingOrder(21, 2139, "ap", 500));
         }
 
         private void SetlistBro()
@@ -266,6 +270,27 @@ namespace AutoJungle.Data
             ItemList.Add(new BuyingOrder(21, 2138, "Elixir of Iron", 500));
         }
 
+        private void SetListJax()
+        {
+            ItemList.Add(new BuyingOrder(1, 1041, "打野刀", 350));
+            ItemList.Add(new BuyingOrder(2, 2031, "药水", 150));
+            ItemList.Add(new BuyingOrder(3, 3340, "饰品", 0));
+            ItemList.Add(new BuyingOrder(4, 1039, "打野刀2", 350));
+            ItemList.Add(new BuyingOrder(5, 3715, "合成打野", 700));
+            ItemList.Add(new BuyingOrder(6, 1042, "攻速1", 350));
+            ItemList.Add(new BuyingOrder(7, 1419, "攻速打野", 1350));
+            ItemList.Add(new BuyingOrder(8, 1001, "Boots of Speed", 600));
+            ItemList.Add(new BuyingOrder(9, 3086, "叉子", 1300));
+            ItemList.Add(new BuyingOrder(10, 3101, "stinger", 2250));
+            ItemList.Add(new BuyingOrder(11, 3044, "Phage", 950));
+            ItemList.Add(new BuyingOrder(12, 3078, "tri", 1490));
+            ItemList.Add(new BuyingOrder(13, 1031, "Chain Vest", 800));
+            ItemList.Add(new BuyingOrder(14, 3742, "Dead Man's Plate", 1800));         
+            ItemList.Add(new BuyingOrder(15, (int) ItemId.Bilgewater_Cutlass, "Bilgewater Cutlass", 1650));
+            ItemList.Add(new BuyingOrder(16, (int) ItemId.Blade_of_the_Ruined_King, "BOTRK", 1750));
+            ItemList.Add(new BuyingOrder(17, 3124, "rage", 3600)); 
+            ItemList.Add(new BuyingOrder(21, 2140, "嗑药", 500));
+        }
         private void SetListAD()
         {
             //ItemList.Add(new BuyingOrder());
@@ -532,6 +557,7 @@ namespace AutoJungle.Data
         KOG,
         Dr,
         Vi,
-        Moon
+        Moon,
+        Jax
     }
 }

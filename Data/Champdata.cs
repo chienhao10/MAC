@@ -94,7 +94,7 @@ namespace AutoJungle
                     break;
                 case "Jax":
                     Hero = ObjectManager.Player;
-                    Type = BuildType.ASMANA;
+                    Type = BuildType.Jax;
 
                     Q = new Spell(SpellSlot.Q, 680f);
                     Q.SetTargetted(0.50f, 75f);
