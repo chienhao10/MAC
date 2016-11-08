@@ -1544,7 +1544,7 @@ namespace AutoJungle
             {
                 return false;
             }
-            if (E.IsReady() && Hero.IsWindingUp && targetMob.MaxHealth > 700)
+            if (E.IsReady() && Hero.IsWindingUp)
             {
                 E.Cast();
             }
