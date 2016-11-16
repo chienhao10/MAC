@@ -1721,8 +1721,8 @@ namespace AutoJungle
             menuChamps.AddItem(new MenuItem("supportedKayle", resourceM.GetString("supportedKayle")));
             menuChamps.AddItem(new MenuItem("supportedDrMundo", resourceM.GetString("supportedDrMundo")));
             menuChamps.AddItem(new MenuItem("supportedVi", resourceM.GetString("supportedVi")));
-            menuChamps.AddItem(new MenuItem("supportedDianna", resourceM.GetString("supportedDianna")));
-            menuChamps.AddItem(new MenuItem("supportedLeesin", resourceM.GetString("supportedLeesin")));
+            menuChamps.AddItem(new MenuItem("supportedDianna", resourceM.GetString("supportedDiana")));
+            menuChamps.AddItem(new MenuItem("supportedLeeSin", resourceM.GetString("supportedLeeSin")));
 
             //menuChamps.AddItem(new MenuItem("supportedSkarner", "Skarner"));
             menu.AddSubMenu(menuChamps);
@@ -1751,3 +1751,4 @@ namespace AutoJungle
         #endregion
     }
 }
+

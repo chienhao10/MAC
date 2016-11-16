@@ -148,14 +148,14 @@ namespace AutoJungle
         {
             if (ObjectManager.Player.Team == GameObjectTeam.Chaos)
             {
-                MonsterList.Add(new MonsterInfo(Camps.pteam_Gromp, 1));
-                MonsterList.Add(new MonsterInfo(Camps.pteam_Blue, 2));
+                MonsterList.Add(new MonsterInfo(Camps.pteam_Blue, 1));
+                MonsterList.Add(new MonsterInfo(Camps.pteam_Gromp, 2));
                 MonsterList.Add(new MonsterInfo(Camps.pteam_Wolf, 3));
-                MonsterList.Add(new MonsterInfo(Camps.pteam_Razorbeak, 4));
-                MonsterList.Add(new MonsterInfo(Camps.pteam_Red, 5));
+                MonsterList.Add(new MonsterInfo(Camps.pteam_Red, 4));
+                MonsterList.Add(new MonsterInfo(Camps.pteam_Razorbeak, 5));
                 MonsterList.Add(new MonsterInfo(Camps.pteam_Krug, 6));
-                MonsterList.Add(new MonsterInfo(Camps.bteam_Gromp, 7));
-                MonsterList.Add(new MonsterInfo(Camps.bteam_Blue, 8));
+                MonsterList.Add(new MonsterInfo(Camps.bteam_Blue, 7));
+                MonsterList.Add(new MonsterInfo(Camps.bteam_Gromp, 8));
                 MonsterList.Add(new MonsterInfo(Camps.bteam_Wolf, 9));
                 MonsterList.Add(new MonsterInfo(Camps.top_crab, 10));
                 MonsterList.Add(new MonsterInfo(Camps.PURPLE_MID, 11));
@@ -167,14 +167,14 @@ namespace AutoJungle
             }
             else
             {
-                MonsterList.Add(new MonsterInfo(Camps.bteam_Krug, 1));
-                MonsterList.Add(new MonsterInfo(Camps.bteam_Red, 2));
+                MonsterList.Add(new MonsterInfo(Camps.bteam_Red, 1));
+                MonsterList.Add(new MonsterInfo(Camps.bteam_Krug, 2));
                 MonsterList.Add(new MonsterInfo(Camps.bteam_Razorbeak, 3));
-                MonsterList.Add(new MonsterInfo(Camps.bteam_Wolf, 4));
-                MonsterList.Add(new MonsterInfo(Camps.bteam_Blue, 5));
+                MonsterList.Add(new MonsterInfo(Camps.bteam_Blue, 4));
+                MonsterList.Add(new MonsterInfo(Camps.bteam_Wolf, 5));
                 MonsterList.Add(new MonsterInfo(Camps.bteam_Gromp, 6));
-                MonsterList.Add(new MonsterInfo(Camps.pteam_Razorbeak, 7));
-                MonsterList.Add(new MonsterInfo(Camps.pteam_Red, 8));
+                MonsterList.Add(new MonsterInfo(Camps.pteam_Red, 7));
+                MonsterList.Add(new MonsterInfo(Camps.pteam_Razorbeak, 8));
                 MonsterList.Add(new MonsterInfo(Camps.pteam_Krug, 9));
                 MonsterList.Add(new MonsterInfo(Camps.top_crab, 10));
                 MonsterList.Add(new MonsterInfo(Camps.BLUE_MID, 11));

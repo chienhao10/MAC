@@ -320,8 +320,24 @@ namespace AutoJungle
                     break;
 
                 default:
+                    Hero = ObjectManager.Player;
+                    Type = BuildType.Dr;
+
+                    Q = new Spell(SpellSlot.Q, 600);
+                    W = new Spell(SpellSlot.W, 500);
+                    E = new Spell(SpellSlot.E, 500);
+                    R = new Spell(SpellSlot.R, 500);
+
+                    Autolvl = new AutoLeveler(new int[] { 0, 2, 1, 0, 0, 3, 0, 2, 0, 2, 3, 2, 2, 1, 1, 3, 1, 1 });
+
+                    JungleClear = AllJungleClear;
+                    Combo = AllCombo;
+                    Console.WriteLine("All loaded");
+                    Game.PrintChat(("Champ Not Supported. But It Will Still Play, Just With Less Logic And Tank Builds."));
+                    Game.PrintChat(("For Supported Chapms, Pls Look Support Tags."));
                     Console.WriteLine(ObjectManager.Player.ChampionName + " not supported");
                     break;
+
                 //nidale w buff?(优先）) | sej，结束skr，amumu？ graves！
             }
         }
@@ -367,6 +383,79 @@ namespace AutoJungle
             {
                 GameInfo.CastSpell(Program._GameInfo.Barrier);
             }
+        }
+
+        private bool AllJungleClear()
+        {
+            var targetMob = Program._GameInfo.Target;
+            var structure = Helpers.CheckStructure();
+            if (structure != null)
+            {
+                Hero.IssueOrder(GameObjectOrder.AttackUnit, structure);
+                return false;
+            }
+            if (targetMob == null)
+            {
+                return false;
+            }
+            ItemHandler.UseItemsJungle();
+            if (Q.IsReady() && targetMob.IsValidTarget() && Q.CanCast(targetMob))
+            {
+                Q.Cast(targetMob);
+                Q.Cast();
+            }
+            if (W.IsReady() && targetMob.IsValidTarget() && W.CanCast(targetMob))
+            {
+                W.Cast(targetMob);
+                W.Cast();
+            }
+            if (E.IsReady() && targetMob.IsValidTarget() && E.CanCast(targetMob))
+            {
+                E.Cast(targetMob);
+                E.Cast();
+            }
+            Hero.IssueOrder(GameObjectOrder.AttackUnit, targetMob);
+            return false;
+        }
+
+        private bool AllCombo()
+        {
+            var targetHero = Program._GameInfo.Target;
+            if (Hero.Spellbook.IsChanneling)
+            {
+                return false;
+            }
+            if (Program.menu.Item("ComboSmite").GetValue<Boolean>())
+            {
+                Jungle.CastSmiteHero((Obj_AI_Hero)targetHero);
+            }
+            if (Hero.IsWindingUp)
+            {
+                return false;
+            }
+            ItemHandler.UseItemsCombo(targetHero, true);
+            if(Q.IsReady() && targetHero.IsValidTarget() && Q.CanCast(targetHero) && !targetHero.IsZombie)
+            {
+                Q.Cast(targetHero);
+                Q.Cast();
+            }
+            if (W.IsReady() && targetHero.IsValidTarget() && W.CanCast(targetHero) && !targetHero.IsZombie)
+            {
+                W.Cast(targetHero);
+                W.Cast();
+            }
+            if (E.IsReady() && targetHero.IsValidTarget() && E.CanCast(targetHero) && !targetHero.IsZombie)
+            {
+                E.Cast(targetHero);
+                E.Cast();
+            }
+            if (R.IsReady() && targetHero.IsValidTarget() && R.CanCast(targetHero) && !targetHero.IsZombie)
+            {
+                R.Cast(targetHero);
+                R.Cast();
+            }
+            OrbwalkingForBots.Orbwalk(targetHero);
+            return false;
         }
 
         private bool MoonCombo()
@@ -487,7 +576,7 @@ namespace AutoJungle
             {
                 if (Hero.Spellbook.IsCharging && !targetHero.UnderTurret())
                 {
-                    Q.Cast(targetHero);
+                    Q.Cast(targetHero.ServerPosition);
                 }
                 else
                 {
@@ -1544,7 +1633,7 @@ namespace AutoJungle
             {
                 return false;
             }
-            if (E.IsReady() && Hero.IsWindingUp)
+            if (E.IsReady() && targetMob.IsValidTarget(300))
             {
                 E.Cast();
             }
@@ -1592,7 +1681,7 @@ namespace AutoJungle
             {
                 Jungle.CastSmiteHero((Obj_AI_Hero) targetHero);
             }
-            if (E.IsReady() && Hero.IsWindingUp)
+            if (E.IsReady() && targetHero.IsValidTarget(300))
             {
                 E.Cast();
             }
